@@ -13,11 +13,11 @@ public class Armazenamento {
 
         System.out.println("--- PREENCHENDO A CAIXA ---");
         for (int i = 0; i < Caixa.length; i++) {
-            char letraLinha = (char) ('A' + i);
+            char letraArmazenamento = (char) ('A' + i);
             for (int j = 0; j < Caixa[i].length; j++) {
                 int numeroEspaço = j + 1;
 
-                System.out.println("Linha " + letraLinha + ", Espaço " + numeroEspaço);
+                System.out.println("Armazenamento " + letraArmazenamento + ", Espaço " + numeroEspaço);
                 System.out.print("Quantos medicamentos deseja adicionar aqui? (Máx " + capacidadePilha + "): ");
                 int qtd = scanner.nextInt();
                 scanner.nextLine();
@@ -33,17 +33,18 @@ public class Armazenamento {
             }
         }
 
-        scanner.nextLine();
+        System.out.println();
         System.out.println("------------------------------------");
-        scanner.nextLine();
+        System.out.println();
 
         System.out.println("--- CONTEÚDO DA CAIXA ---");
         for (int i = 0; i < Caixa.length; i++) {
-            char letraLinha = (char) ('A' + i);
+            char letraArmazenamento = (char) ('A' + i);
             for (int j = 0; j < Caixa[i].length; j++) {
                 int numeroEspaço = j + 1;
-                System.out.println("Linha " + letraLinha + ", Espaço " + numeroEspaço + ": " + Caixa[i][j]);
+                System.out.println("Armazenamento " + letraArmazenamento + ", Espaço " + numeroEspaço + ": ");
                 Caixa[i][j].exibir();
+                System.out.println();
             }
         }
 
