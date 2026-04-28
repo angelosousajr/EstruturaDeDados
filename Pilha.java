@@ -1,30 +1,30 @@
 public class Pilha {
-    public int[] dados;
+    public Medicamento[] dados;
     public int topo;
 
     public Pilha(int capacidade) {
-        dados = new int[capacidade];
+        dados = new Medicamento[capacidade];
         topo = -1;
     }
 
-    public void adicionar(int valor) {
+    public void adicionar(Medicamento medicamento) {
         if (topo < dados.length - 1) {
             topo++;
-            dados[topo] = valor;
-            System.out.println("Colocou o medicamento " + valor + " na pilha.");
+            dados[topo] = medicamento;
+            System.out.println("Colocou o medicamento " + medicamento.getNomeMedicamento() + " na pilha.");
         } else {
             System.out.println("A pilha já está cheia, não é possível adicionar mais!");
         }
     }
 
-    public int remover() {
+    public Medicamento remover() {
         if (topo >= 0) {
-            int valorRemovido = dados[topo];
+            Medicamento medicamentoRemovido = dados[topo];
             topo--;
-            return valorRemovido;
+            return medicamentoRemovido;
         } else {
             System.out.println("A pilha está vazia, não é possível remover!");
-            return -1;
+            return null;
         }
     }
 
@@ -32,7 +32,7 @@ public class Pilha {
         if (topo >= 0) {
             System.out.println("Conteúdo da pilha:");
             for (int i = topo; i >= 0; i--) {
-                System.out.println(dados[i]);
+                System.out.println(dados[i].toString());
             }
         } else {
             System.out.println("A pilha está vazia!");
