@@ -21,7 +21,7 @@ public class Armazenamento {
             System.out.println("\n--- MENU ---");
             System.out.println("1 - Adicionar medicamento");
             System.out.println("2 - Remover medicamento");
-            System.out.println("3 - Visualizar pilha");
+            System.out.println("3 - Visualizar caixa");
             System.out.println("4 - Sair");
             System.out.print("Escolha: ");
 
@@ -59,9 +59,28 @@ public class Armazenamento {
                         break;
 
                     case 2:
-                        Medicamento removido = Caixa[i][j].remover();
-                        if (removido != null) {
-                            System.out.println("Removido: " + removido);
+                        System.out.println("1 - Remover o do topo (último adicionado)");
+                        System.out.println("2 - Procurar e remover por nome específico");
+                        System.out.print("Escolha: ");
+                        int tipoRemocao = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (tipoRemocao == 1) {
+                            Medicamento removido = Caixa[i][j].remover();
+                            if (removido != null) {
+                                System.out.println("Removido do topo: " + removido);
+                            }
+                        } else if (tipoRemocao == 2) {
+                            System.out.print("Digite o nome do medicamento a ser removido: ");
+                            String nomeBusca = scanner.nextLine();
+                            
+                            Medicamento removidoEspecifico = Caixa[i][j].removerEspecifico(nomeBusca);
+
+                            if (removidoEspecifico != null) {
+                                System.out.println("Medicamento removido: " + removidoEspecifico);
+                            }else{
+                                System.out.println("Medicamento " + nomeBusca + " não encontrado na caixa.");
+                            }
                         }
                         break;
 
